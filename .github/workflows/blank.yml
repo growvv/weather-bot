@@ -8,6 +8,8 @@ on:
   
   pull_request:
 
+  release:
+      types: [published, created, edited]
 jobs:
   build:
     name: hello world
