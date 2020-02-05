@@ -1,10 +1,6 @@
-name: CI
+name: Send Weather Mail
 
-on: 
-  push:
-    branches: 
-      - master
-      - release/*
+on: [push]
   
 jobs:
   build:
@@ -16,15 +12,13 @@ jobs:
       
     - name: Run a one-line script
       run: echo Hello, world!
-      
-    - name: Run a multi-line script
-      run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
         
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+        
+    - name: Run
+      run: node index.js
     
     
