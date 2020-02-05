@@ -18,6 +18,9 @@ jobs:
       with:
         node-version: '10.x'
         
+    - name: 'Install NPM dependencies'
+      run: npm install nodemailer 
+        
     - name: Run
       run: node index.js
     
