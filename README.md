@@ -1,6 +1,8 @@
 # Weather-Bot
 一个利用GitHub Actions自动发送天气到邮箱的Bot.
 
+注：index2.js是另外一个邮件模板（调用的和风天气），index.html是一个网页版天气插件
+
 ## 一、workflow编写
 **触发机制**
 ```yml
@@ -19,10 +21,12 @@ on:
     - name: 'Install NPM dependencies'
       run: 
         npm install nodemailer
-        npm install request superagent cheerio art-template node-schedule
+        npm install request superagent cheerio dotenv-extended art-template node-schedule
         
     - name: Run
       run: node index.js
+      env:
+        SMTP: ${{secrets.SMTP}}
 ```
 
 ## 二、天气获取
@@ -179,6 +183,11 @@ async function renderTemplate() {
     });
 }
 ```
+
+## 六、有待改进
+1. 邮箱的SMTP码应该藏起来
+
+已改进，使用actions的env并将SMTP存在项目的secrets中。
 
 ## 参考链接
 1. [知乎-利用模版引擎制作HTML的邮件](https://zhuanlan.zhihu.com/p/62199733)
