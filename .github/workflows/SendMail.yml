@@ -1,7 +1,7 @@
 name: Send Weather Mail
 
 on:
-  push:
+  
   schedule:
     - cron: '0 21 * * *'
 
@@ -24,7 +24,7 @@ jobs:
     - name: 'Install NPM dependencies'
       run: 
         npm install nodemailer
-        npm install request superagent cheerio art-template node-schedule
+        npm install request superagent cheerio art-template node-schedule dotenv-extended
         
     - name: Run
       run: node index.js
