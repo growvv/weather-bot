@@ -1,7 +1,7 @@
 name: Send Weather Mail
 
 on:
-  push:
+  
   schedule:
     - cron: '0 21 * * *'
 
@@ -28,5 +28,6 @@ jobs:
         
     - name: Run
       run: node index.js
-    
+      env:
+        SMTP: ${{ secrets.SMTP }}    
     
