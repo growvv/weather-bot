@@ -1,3 +1,5 @@
+// 引入actions中的环境变量
+require('dotenv').config()
 // 2.0 引入 superagent 包，用于 Node 服务器发送http请求
 const request = require("superagent");
 // 3.0 导入 cheerio，把字符串解析成 HTML
@@ -10,6 +12,8 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 // 6.0 导入 定时任务模块
 const schedule = require("node-schedule");
+
+const { SMTP } = process.env
 
 // 1.0 计算爱人认识的天数
 function getDayData() {
@@ -144,7 +148,7 @@ async function sendNodeMail() {
         secureConnection: true, // 开启加密协议，需要使用 465 端口号
         auth: {
             user: "growvv@qq.com", // 自己的邮箱用户名
-            pass: "yhhhsqnxakllbdjd"                 // 自己的邮箱授权密码
+            pass: SMTP                 // 自己的邮箱授权密码
         }
     });
 
