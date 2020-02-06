@@ -1,13 +1,13 @@
 name: Send Weather Mail
 
 on:
-  
+  push:
   schedule:
     - cron: '0 21 * * *'
 
 jobs:
   build:
-    name: My Test
+    name: My Send
     runs-on: ubuntu-latest
 
     steps:
