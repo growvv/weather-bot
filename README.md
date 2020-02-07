@@ -189,6 +189,10 @@ async function renderTemplate() {
 
 已改进，使用actions的env并将SMTP存在项目的secrets中。
 
+2. 写一个好看的邮件模板
+
+CSS功底太差，这个模板都是网上找的。
+
 ## 参考链接
 1. [知乎-利用模版引擎制作HTML的邮件](https://zhuanlan.zhihu.com/p/62199733)
 2. [知乎-如何制作网页格式的邮件（html）邮件？](https://www.zhihu.com/question/20556280)
