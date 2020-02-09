@@ -19,9 +19,15 @@ const { SMTP } = process.env
 function getDayData() {
     return new Promise((resolve, reject) => {
         // 现在的时间
-        const today = new Date();
+        // const today = new Date();
         // 认识的时间 2019-03-01
         const meet = new Date("2019-03-01");
+        
+        const timezone = 8; //目标时区时间，东八区
+        var offset_GMT = new Date().getTimezoneOffset(); // 本地时间和格林威治的时间差，单位为分钟
+        var nowDate = new Date().getTime(); // 本地时间距 1970 年 1 月 1 日午夜（GMT 时间）之间的毫秒数
+        const today = new Date(nowDate + offset_GMT * 60 * 1000 + timezone * 60 * 60 * 1000);
+        
         // 计算相识到今天的天数，毫秒值，1000毫秒1秒，60秒1分，60分1小时，24小时1天
         const count = Math.ceil((today - meet) / 1000 / 60 / 60 / 24);
         // 今天日期格式化
