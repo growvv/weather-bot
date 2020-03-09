@@ -184,7 +184,10 @@ async function renderTemplate() {
 }
 ```
 
-## 六、有待改进
+## 六、最终效果
+![](https://cdn.jsdelivr.net/gh/growvv/image-bed/images/20200309124303.jpg)
+
+## 七、有待改进
 1. 邮箱的SMTP码应该藏起来
 
 已改进，使用actions的env并将SMTP存在项目的secrets中。
